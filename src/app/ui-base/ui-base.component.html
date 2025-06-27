@@ -18,18 +18,18 @@
   </ion-header>
 
   <ion-content>
-    <section class="eco-greeting">
-      <div class="eco-greeting-text">
-        <h2>¡Hola, maria!</h2>
-        <p>Hoy es un gran día para cuidar el planeta</p>
-      </div>
-      <div class="eco-score">
-        <span class="eco-score-points">47</span>
-        <span class="eco-score-label">puntos esta semana</span>
-        <ion-progress-bar value="0.78" color="success"></ion-progress-bar>
-        <span class="eco-progress-label">Progreso semanal</span>
-      </div>
-    </section>
+    <section class="eco-greeting bg-gradient-to-r from-emerald-600 to-green-600 rounded-xl shadow p-6 mb-4 flex flex-wrap justify-between items-start">
+  <div class="eco-greeting-text text-white">
+    <h2 class="text-xl font-bold mb-1">¡Hola, maria!</h2>
+    <p class="text-base">Hoy es un gran día para cuidar el planeta</p>
+  </div>
+  <div class="eco-score text-right min-w-[90px]">
+    <span class="eco-score-points text-2xl font-bold">47</span>
+    <span class="eco-score-label block text-sm">puntos esta semana</span>
+    <ion-progress-bar value="0.78" color="success"></ion-progress-bar>
+    <span class="eco-progress-label text-xs text-emerald-100">Progreso semanal</span>
+  </div>
+</section>
 
     <section class="eco-categories">
       <ion-grid>
@@ -60,10 +60,10 @@
         <ion-segment-button value="completadas">Completadas</ion-segment-button>
         <ion-segment-button value="hoy">Hoy</ion-segment-button>
       </ion-segment>
-      <div class="eco-tasks-header">
-        <span>Mis Tareas</span>
-        <ion-badge color="success">0 tareas</ion-badge>
-      </div>
+      <div class="eco-tasks-header flex justify-between items-center mt-4 mb-2 font-semibold text-emerald-700">
+  <span>Mis Tareas</span>
+  <ion-badge color="success">0 tareas</ion-badge>
+</div>
       <div class="eco-tasks-empty">
         <ion-icon name="leaf-outline" size="large"></ion-icon>
         <p>¡Comienza tu aventura eco!</p>
