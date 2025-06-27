@@ -1,0 +1,105 @@
+ion-app {
+  --ion-background-color: #fff;
+}
+
+.eco-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.eco-greeting {
+  background: linear-gradient(90deg, #059669 0%, #16a34a 100%);
+  color: #fff;
+  border-radius: 0.75rem;
+  margin: 1rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.eco-greeting-text h2 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.3rem;
+}
+.eco-greeting-text p {
+  margin: 0;
+  font-size: 1rem;
+}
+.eco-score {
+  text-align: right;
+  min-width: 90px;
+}
+.eco-score-points {
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: block;
+}
+.eco-score-label {
+  font-size: 0.9rem;
+  display: block;
+}
+.eco-progress-label {
+  font-size: 0.8rem;
+  color: #d1fae5;
+}
+
+.eco-categories {
+  margin: 1rem 0;
+}
+.eco-cat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  border-radius: 1rem;
+  min-height: 90px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #059669;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+  background: #f0fdf4;
+  transition: box-shadow 0.2s;
+}
+.eco-cat-card ion-icon {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+}
+
+.eco-tasks-tabs {
+  margin: 1.5rem 1rem 1rem 1rem;
+}
+.eco-tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.eco-tasks-empty {
+  text-align: center;
+  color: #a7f3d0;
+  margin: 2rem 0;
+}
+.eco-tasks-empty ion-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+ion-fab-button {
+  --background: #059669;
+  --background-hover: #047857;
+  --background-activated: #047857;
+}
+
+ion-tab-bar {
+  --background: #fff;
+  --color: #059669;
+  --color-selected: #16a34a;
+}
