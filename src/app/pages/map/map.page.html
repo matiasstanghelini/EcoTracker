@@ -1,0 +1,56 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mapa Verde</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lugares Ecológicos Cercanos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div style="padding: 16px;">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>🗺️ Mapa Interactivo</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div style="background: #f0f0f0; height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+          <p style="color: #666; text-align: center;">
+            📍 Mapa interactivo aquí<br>
+            <small>(Integración con Google Maps próximamente)</small>
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Lugares Ecológicos Cercanos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let location of ecoLocations">
+            <ion-icon [name]="getLocationIcon(location.type)" slot="start"></ion-icon>
+            <ion-label>
+              <h2>{{ location.name }}</h2>
+              <p>{{ location.address }}</p>
+              <p>{{ location.description }}</p>
+              <div style="margin-top: 8px;">
+                <ion-chip [color]="getLocationColor(location.type)">
+                  {{ location.type }}
+                </ion-chip>
+                <ion-chip color="medium">
+                  📍 {{ location.distance }}
+                </ion-chip>
+              </div>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

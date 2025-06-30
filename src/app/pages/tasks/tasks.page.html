@@ -1,0 +1,101 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>EcoTracker - Mis Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Mis Tareas Ecológicas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Add Task Form -->
+  <ion-card *ngIf="showAddForm">
+    <ion-card-header>
+      <ion-card-title>Nueva Tarea Ecológica</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Título</ion-label>
+        <ion-input [(ngModel)]="newTask.title" placeholder="Ej: Reciclar papel"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Descripción</ion-label>
+        <ion-textarea [(ngModel)]="newTask.description" placeholder="Describe la tarea..."></ion-textarea>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Categoría</ion-label>
+        <ion-select [(ngModel)]="newTask.category">
+          <ion-select-option value="Reciclaje">Reciclaje</ion-select-option>
+          <ion-select-option value="Reforestación">Reforestación</ion-select-option>
+          <ion-select-option value="Transporte">Transporte</ion-select-option>
+          <ion-select-option value="Energía">Energía</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <div style="margin-top: 16px;">
+        <ion-button expand="block" (click)="addTask()">Agregar Tarea</ion-button>
+        <ion-button expand="block" fill="clear" (click)="showAddForm = false">Cancelar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Tasks List -->
+  <div style="padding: 16px;">
+    <ion-card *ngFor="let task of tasks" [class.completed-task]="task.completed">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <ion-card-title>{{ task.title }}</ion-card-title>
+          <ion-chip [color]="getCategoryColor(task.category)">
+            {{ task.category }}
+          </ion-chip>
+        </div>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <p>{{ task.description }}</p>
+        <p><small>{{ task.date | date:'short' }}</small></p>
+        
+        <ion-img *ngIf="task.photo" [src]="task.photo" style="max-height: 200px; border-radius: 8px; margin: 8px 0;"></ion-img>
+        
+        <div style="margin-top: 16px;">
+          <ion-button 
+            *ngIf="!task.completed" 
+            (click)="takePicture(task)" 
+            color="primary">
+            <ion-icon name="camera" slot="start"></ion-icon>
+            Tomar Foto de Evidencia
+          </ion-button>
+          
+          <ion-button 
+            *ngIf="task.completed && task.photo" 
+            color="success" 
+            disabled>
+            <ion-icon name="checkmark-circle" slot="start"></ion-icon>
+            Completada con Evidencia
+          </ion-button>
+          
+          <ion-button 
+            *ngIf="!task.completed" 
+            fill="outline" 
+            (click)="toggleTask(task)">
+            <ion-icon name="checkmark" slot="start"></ion-icon>
+            Marcar como Completada
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="showAddForm = true">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
